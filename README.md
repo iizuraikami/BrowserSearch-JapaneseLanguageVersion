@@ -6,7 +6,7 @@
 </p>
 
 ## 対応ブラウザ
-* Ar
+* Arc
 * Brave
 * Firefox
 * Google Chrome
