@@ -3,10 +3,10 @@
   "ActionKeyword": "b?",
   "IsGlobal": true,
   "Name": "Browser Search",
-  "Author": "TBM13",
+  "Author": "Original:TBM13-fork:iizuraikami",
   "Version": "1.7.0",
   "Language": "csharp",
-  "Website": "https://github.com/TBM13/BrowserSearch",
+  "Website": "https://github.com/iizuraikami/BrowserSearch-JapaneseLanguageVersion",
   "ExecuteFileName": "Community.PowerToys.Run.Plugin.BrowserSearch.dll",
   "IcoPathDark": "Images\\BrowserSearch.dark.png",
   "IcoPathLight": "Images\\BrowserSearch.light.png"
