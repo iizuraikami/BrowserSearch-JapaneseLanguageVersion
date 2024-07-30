@@ -17,24 +17,24 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
     {
         public static string PluginID => "E5A9FC7A3F7F4320BE612DA95C57C32D";
         public string Name => "Browser Search";
-        public string Description => "Searches in your browser's history.";
+        public string Description => "ブラウザの履歴を検索します。";
 
         public IEnumerable<PluginAdditionalOption> AdditionalOptions => new List<PluginAdditionalOption>()
         {
             new()
             {
                 Key = MaxResults,
-                DisplayLabel = "Maximum number of results",
-                DisplayDescription = "Maximum number of results to show. Set to -1 to show all (may decrease performance)",
+                DisplayLabel = "結果の最大数",
+                DisplayDescription = "表示する結果の最大数。すべてを表示するには-1に設定します（パフォーマンスが低下する可能性があります）。",
                 PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Numberbox,
                 NumberValue = 15
             },
             new()
             {
                 Key = SingleProfile,
-                DisplayLabel = "Browser profile",
-                DisplayDescription = "The name of the browser profile whose history will be loaded.\n" +
-                                     "If empty, the history of ALL profiles will be loaded.",
+                DisplayLabel = "ブラウザのプロファイル",
+                DisplayDescription = "履歴が読み込まれるブラウザのプロファイル名。\n" +
+                                     "空の場合は、すべてのプロファイルの履歴が読み込まれます。",
                 PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Textbox
             }
         };
@@ -104,7 +104,7 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
 
             if (BrowserInfo.Name is null)
             {
-                Log.Error("Couldn't retrieve default browser name: Timeout", typeof(Main));
+                Log.Error("デフォルトのブラウザ名を取得できませんでした。", typeof(Main));
                 return;
             }
 
@@ -198,12 +198,12 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
                     );
                     break;
                 default:
-                    Log.Error($"Unsupported/unrecognized default browser '{BrowserInfo.Name}'", typeof(Main));
-                    MessageBox.Show($"Browser '{BrowserInfo.Name}' is not supported", "BrowserSearch");
+                    Log.Error($"サポートされていない/認識されないデフォルトブラウザ '{BrowserInfo.Name}'", typeof(Main));
+                    MessageBox.Show($"ブラウザ '{BrowserInfo.Name}' はサポートされていません。", "BrowserSearch");
                     return;
             }
 
-            Log.Info($"Initializing browser '{BrowserInfo.Name}'", typeof(Main));
+            Log.Info($"ブラウザ'{BrowserInfo.Name}'の初期化", typeof(Main));
             _defaultBrowser.Init();
         }
 
@@ -216,10 +216,10 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
             }
 
             List<Result> history = _defaultBrowser.GetHistory();
-            // Happens when the user only types our ActionKeyword ("b?" by default)
+            // ユーザーがActionKeyword（デフォルトでは "b?"）を入力した場合に発生します。
             if (string.IsNullOrEmpty(query.Search))
             {
-                // Returning the whole history here makes the search lag, so return only some entries
+                // ここで履歴全体を返すと検索に時間がかかるので、一部の項目だけを返すようにする。
                 int amount = _maxResults == -1 ? 15 : _maxResults;
                 return history.TakeLast(amount).ToList();
             }
@@ -241,7 +241,7 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
 
             if (_maxResults != -1)
             {
-                // Rendering the UI of every search entry is slow, so only show top results
+                // すべての検索エントリーのUIをレンダリングするのは遅いので、上位の結果のみを表示する。
                 results.Sort((x, y) => y.Score.CompareTo(x.Score));
                 results = results.Take(_maxResults).ToList();
             }
@@ -251,8 +251,8 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
 
         private int CalculateScore(string query, string title, string url)
         {
-            // Since PT Run's FuzzySearch is too slow, and the history usually has a lot of entries,
-            // lets calculate the scores manually using a faster (but less accurate) method
+            // PT RunのFuzzySearchは遅すぎるし、履歴には通常たくさんのエントリーがある、
+            // より速い（しかし精度は低い）方法で手動で得点を計算しよう。
             float titleScore = title.Contains(query, StringComparison.InvariantCultureIgnoreCase)
                 ? ((float)query.Length / (float)title.Length * 100f)
                 : 0;
@@ -266,4 +266,3 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
             return (int)score;
         }
     }
-}
