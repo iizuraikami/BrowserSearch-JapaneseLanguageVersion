@@ -1,38 +1,37 @@
 # BrowserSearch
-This is a plugin for PowerToys Run.
-It reads your default browser's history, allowing you to search its entries and open their URL.
+これはPowerToys Run用のプラグインです。 デフォルトブラウザの履歴を読み込んで、その項目を検索したり、そのURLを開いたりすることができます。
 
 <p align="center">
     <img src="./Screenshots/1.png" width="500"/>
 </p>
 
-## Supported browsers
+## 対応ブラウザ
 * Arc
 * Brave
 * Firefox
 * Google Chrome
-* Microsoft Edge (Chromium version)
+* Microsoft Edge (Chromium バージョン)
 * Thorium
 * Vivaldi Browser
 * Wavebox
 
-Support for any other browser based on Chromium or Firefox can be added easily. If yours is not listed here, open an issue.
+ChromiumやFirefoxをベースとした他のブラウザのサポートも簡単に追加できます。あなたのブラウザがここにリストされていない場合は、フォーク元のリポジトリのissueを開いてください。
 
-## Install instructions
-* Exit PowerToys
-* Download latest version from [releases](https://github.com/TBM13/BrowserSearch/releases)
-* Extract zip
-* Move extracted folder `BrowserSearch` to `%LOCALAPPDATA%\Microsoft\PowerToys\PowerToys Run\Plugins\`
-* Start PowerToys
+## インストール方法
+* PowerToysを終了させる
+* 最新版のダウンロード [最新リリース](https://github.com/iizuraikami/BrowserSearch-JapaneseLanguageVersion/releases)
+* zipファイルを展開する
+* 解凍したフォルダを移動する `BrowserSearch` を `%LOCALAPPDATA%\Microsoft\PowerToys\PowerToys Run\Plugins\`
+* PowerToysを起動する
 
-## Build instructions
-* Clone this repo
-* Inside the `BrowserSearch` folder, create another one called `libs`
-* Copy the following files from `%ProgramFiles%\PowerToys\` to `libs`
+## ビルド方法 
+* このリポジトリをクローンする
+* `BrowserSearch`フォルダーの中に、`libs`というフォルダを作成する
+* 以下のファイルを `%ProgramFiles%PowerToys` から `libs` にコピーする。
     * Wox.Plugin.dll
     * Wox.Infrastructure.dll
     * Microsoft.Data.Sqlite.dll
     * PowerToys.Settings.UI.Lib.dll
-* Open the project in Visual Studio and build it in release mode
-* Copy the output folder `net8.0-windows` to `%LOCALAPPDATA%\Microsoft\PowerToys\PowerToys Run\Plugins\`
-* (Optional) Rename the copied folder to BrowserSearch
+* Visual Studioでプロジェクトを開き、リリースモードでビルドする。
+* 出力されたフォルダー`net8.0-windows`を`%LOCALAPPDATA%%Microsoft¥PowerToys¥PowerToys RunPlugins`にコピーする 
+* (オプション)コピーしたフォルダーをBrowserSearchにリネームする
