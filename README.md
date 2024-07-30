@@ -19,7 +19,7 @@ ChromiumやFirefoxをベースとした他のブラウザのサポートも簡�
 
 ## インストール方法
 * PowerToysを終了させる
-* 最新版のダウンロード [最新リリース](https://github.com/iizuraikami/BrowserSearch-JapaneseLanguageVersion/releases)
+* 最新版のダウンロード [最新版](https://github.com/iizuraikami/BrowserSearch-JapaneseLanguageVersion/releases)
 * zipファイルを展開する
 * 解凍したフォルダを移動する `BrowserSearch` を `%LOCALAPPDATA%\Microsoft\PowerToys\PowerToys Run\Plugins\`
 * PowerToysを起動する
