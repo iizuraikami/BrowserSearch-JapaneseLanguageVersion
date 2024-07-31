@@ -24,8 +24,8 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
             new()
             {
                 Key = MaxResults,
-                DisplayLabel = "結果の最大数",
-                DisplayDescription = "表示する結果の最大数。すべてを表示するには-1に設定します（パフォーマンスが低下する可能性があります）。",
+                DisplayLabel = "表示する結果の数",
+                DisplayDescription = "表示する結果の最大数です。-1に設定することで、すべてを表示できます（パフォーマンスが低下する可能性があります）。",
                 PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Numberbox,
                 NumberValue = 15
             },
@@ -251,8 +251,8 @@ namespace Community.Powertoys.Run.Plugin.BrowserSearch
 
         private int CalculateScore(string query, string title, string url)
         {
-            // PT RunのFuzzySearchは遅すぎるし、履歴には通常たくさんのエントリーがある、
-            // より速い（しかし精度は低い）方法で手動で得点を計算しよう。
+            // PT RunのFuzzySearchは遅すぎるし、履歴には通常たくさんの項目があります、
+            // より速い（しかし精度は低い）方法で手動で得点を計算できます。
             float titleScore = title.Contains(query, StringComparison.InvariantCultureIgnoreCase)
                 ? ((float)query.Length / (float)title.Length * 100f)
                 : 0;
