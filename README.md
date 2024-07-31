@@ -1,5 +1,5 @@
 # BrowserSearch
-これはPowerToys Run用のプラグインです。 デフォルトブラウザの履歴を読み込んで、その項目を検索したり、そのURLを開いたりすることができます。
+PowerToys Run用のプラグインです。 デフォルトブラウザの履歴を読み込んでその項目を検索し、そのURLを開きます
 
 <p align="center">
     <img src="./Screenshots/1.png" width="500"/>
@@ -15,7 +15,7 @@
 * Vivaldi Browser
 * Wavebox
 
-ChromiumやFirefoxをベースとした他のブラウザのサポートも簡単に追加できます。あなたの既定ブラウザが対応していない場合は、フォーク元のリポジトリのissueを開いてください。
+ChromiumやFirefoxをベースとした他のブラウザのサポートもできます。あなたのデフォルトのブラウザが対応していない場合は、フォーク元のリポジトリのissueで相談してください
 
 ## インストール方法
 * PowerToysを終了させる
